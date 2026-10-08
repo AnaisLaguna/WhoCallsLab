@@ -1,0 +1,2056 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Kaspersky Who Calls | Security Lab</title>
+
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+    <!-- =====================================================
+         HEADER
+    ====================================================== -->
+
+    <header class="main-header">
+
+        <div class="header-brand">
+
+            <img
+                src="who-calls-logo.png"
+                alt="Who Calls"
+                class="header-logo"
+            >
+
+            <div>
+                <div class="header-title">
+                    Kaspersky Who Calls
+                </div>
+
+                <div class="header-subtitle">
+                    SECURITY LAB
+                </div>
+            </div>
+
+        </div>
+
+        <div class="header-status">
+            LABORATORIO INTERACTIVO
+        </div>
+
+    </header>
+
+
+    <!-- =====================================================
+         HERO
+    ====================================================== -->
+
+    <main>
+
+        <section class="hero">
+
+            <div class="hero-content">
+
+                <div class="eyebrow">
+                    KASPERSKY SECURITY LAB
+                </div>
+
+                <h1>
+                    Protección contra
+                    <span>llamadas y fraudes</span>
+                </h1>
+
+                <p>
+                    Simula cómo una llamada o un mensaje desconocido
+                    puede ser identificado, analizado y clasificado
+                    antes de tomar una decisión.
+                </p>
+
+                <button
+                    class="hero-button"
+                    onclick="startSimulation()">
+                    INICIAR LABORATORIO
+                </button>
+
+            </div>
+
+
+            <!-- =========================================
+             VISUAL HEXAGONAL WHO CALLS
+        ========================================== -->
+
+        <div class="hero-visual">
+
+            <svg
+                class="hero-hex-wave"
+                viewBox="0 0 360 360"
+                aria-hidden="true"
+            >
+
+                <!-- HEXÁGONO EXTERIOR -->
+                <path
+                    class="hex-wave hex-wave-outer"
+                    d="M180 18
+                       L322 100
+                       L322 260
+                       L180 342
+                       L38 260
+                       L38 100
+                       Z"
+                />
+
+                <!-- HEXÁGONO 3 -->
+                <path
+                    class="hex-wave hex-wave-3"
+                    d="M180 58
+                       L287 120
+                       L287 240
+                       L180 302
+                       L73 240
+                       L73 120
+                       Z"
+                />
+
+                <!-- HEXÁGONO 2 -->
+                <path
+                    class="hex-wave hex-wave-2"
+                    d="M180 92
+                       L257 137
+                       L257 223
+                       L180 268
+                       L103 223
+                       L103 137
+                       Z"
+                />
+
+                <!-- HEXÁGONO INTERNO -->
+                <path
+                    class="hex-wave hex-wave-1"
+                    d="M180 122
+                       L232 152
+                       L232 208
+                       L180 238
+                       L128 208
+                       L128 152
+                       Z"
+                />
+
+            </svg>
+
+
+            <div class="who-calls-center">
+
+                <img
+                    src="who-calls-logo.png"
+                    alt="Kaspersky Who Calls"
+                >
+
+            </div>
+
+        </div>
+                
+
+        </section>
+
+
+        <!-- =================================================
+             LABORATORIO
+        ================================================== -->
+
+        <section class="lab-section">
+
+            <div class="section-heading">
+
+                <div>
+
+                    <div class="section-label">
+                        SECURITY LAB
+                    </div>
+
+                    <h2>
+                        Explora una amenaza
+                    </h2>
+
+                    <p>
+                        Selecciona una llamada o un mensaje
+                        para iniciar una simulación.
+                    </p>
+
+                </div>
+
+
+                <div class="lab-indicator">
+
+                    <span></span>
+
+                    SISTEMA LISTO
+
+                </div>
+
+            </div>
+
+
+            <div class="lab-layout">
+
+
+                <!-- =========================================
+                     TELÉFONO
+                ========================================== -->
+
+                <div class="phone-wrapper">
+
+                    <div class="phone">
+
+                        <div class="phone-camera"></div>
+
+
+                        <!-- STATUS BAR -->
+
+                        <div class="phone-status">
+
+                            <span>
+                                KASPERSKY
+                            </span>
+
+                            <span id="phoneTime">
+                                00:00
+                            </span>
+
+                            <span>
+                                ●●●
+                            </span>
+
+                        </div>
+
+
+                        <!-- =================================
+                             HOME
+                        ================================== -->
+
+                        <div
+                            id="phoneHome"
+                            class="phone-screen">
+
+                            <div class="phone-home">
+
+                                <div class="phone-logo">
+
+                                    <img
+                                        src="who-calls-logo.png"
+                                        alt="Who Calls">
+
+                                </div>
+
+
+                                <div class="phone-brand-name">
+
+                                    <span>
+                                        Kaspersky Who Calls
+                                    </span>
+
+                                </div>
+
+
+                                <p>
+                                    Security Lab
+                                </p>
+
+
+                                <!-- NUEVA SELECCIÓN -->
+
+                                <div class="home-module-selection">
+
+                                    <button
+                                        class="home-module-button"
+                                        onclick="openCallsModule()">
+
+                                        <span class="module-icon">
+                                            📞
+                                        </span>
+
+                                        <span class="module-text">
+
+                                            <strong>
+                                                Llamadas
+                                            </strong>
+
+                                            <small>
+                                                Identificación
+                                            </small>
+
+                                        </span>
+
+                                    </button>
+
+
+                                    <button
+                                        class="home-module-button"
+                                        onclick="openMessagesModule()">
+
+                                        <span class="module-icon">
+                                            💬
+                                        </span>
+
+                                        <span class="module-text">
+
+                                            <strong>
+                                                Mensajes
+                                            </strong>
+
+                                            <small>
+                                                Phishing
+                                            </small>
+
+                                        </span>
+
+                                    </button>
+
+                                </div>
+
+
+                                <button
+                                    class="phone-start-button"
+                                    onclick="startSimulation()">
+
+                                    Iniciar simulación
+
+                                </button>
+
+                            </div>
+
+                        </div>
+
+
+                        <!-- =================================
+                             MENÚ DE LLAMADAS
+                        ================================== -->
+
+                        <div
+                            id="callsMenuScreen"
+                            class="phone-screen hidden">
+
+                            <div class="module-header">
+
+                                <button
+                                    class="module-back"
+                                    onclick="goHome()">
+                                    ‹
+                                </button>
+
+                                <div>
+                                    <strong>
+                                        Llamadas
+                                    </strong>
+
+                                    <small>
+                                        Who Calls
+                                    </small>
+                                </div>
+
+                                <span></span>
+
+                            </div>
+
+
+                            <div class="module-content">
+
+                                <div class="module-intro">
+
+                                    <span class="module-intro-icon">
+                                        📞
+                                    </span>
+
+                                    <div>
+
+                                        <strong>
+                                            Identificación de llamadas
+                                        </strong>
+
+                                        <p>
+                                            Selecciona un escenario
+                                            para iniciar una llamada.
+                                        </p>
+
+                                    </div>
+
+                                </div>
+
+
+                                <button
+                                    class="phone-scenario"
+                                    onclick="showCall('bank')">
+
+                                    <span class="phone-scenario-icon">
+                                        🏦
+                                    </span>
+
+                                    <span class="phone-scenario-text">
+
+                                        <strong>
+                                            Supuesto banco
+                                        </strong>
+
+                                        <small>
+                                            Fraude financiero
+                                        </small>
+
+                                    </span>
+
+                                    <span>
+                                        ›
+                                    </span>
+
+                                </button>
+
+
+                                <button
+                                    class="phone-scenario"
+                                    onclick="showCall('package')">
+
+                                    <span class="phone-scenario-icon">
+                                        📦
+                                    </span>
+
+                                    <span class="phone-scenario-text">
+
+                                        <strong>
+                                            Paquetería
+                                        </strong>
+
+                                        <small>
+                                            Entrega sospechosa
+                                        </small>
+
+                                    </span>
+
+                                    <span>
+                                        ›
+                                    </span>
+
+                                </button>
+
+
+                                <button
+                                    class="phone-scenario"
+                                    onclick="showCall('prize')">
+
+                                    <span class="phone-scenario-icon">
+                                        🎁
+                                    </span>
+
+                                    <span class="phone-scenario-text">
+
+                                        <strong>
+                                            Premio falso
+                                        </strong>
+
+                                        <small>
+                                            Promoción sospechosa
+                                        </small>
+
+                                    </span>
+
+                                    <span>
+                                        ›
+                                    </span>
+
+                                </button>
+
+
+                                <button
+                                    class="phone-scenario"
+                                    onclick="showCall('support')">
+
+                                    <span class="phone-scenario-icon">
+                                        🛠️
+                                    </span>
+
+                                    <span class="phone-scenario-text">
+
+                                        <strong>
+                                            Soporte técnico
+                                        </strong>
+
+                                        <small>
+                                            Ingeniería social
+                                        </small>
+
+                                    </span>
+
+                                    <span>
+                                        ›
+                                    </span>
+
+                                </button>
+
+
+                                <button
+                                    class="phone-scenario"
+                                    onclick="showCall('silent')">
+
+                                    <span class="phone-scenario-icon">
+                                        🔇
+                                    </span>
+
+                                    <span class="phone-scenario-text">
+
+                                        <strong>
+                                            Llamada silenciosa
+                                        </strong>
+
+                                        <small>
+                                            Comportamiento sospechoso
+                                        </small>
+
+                                    </span>
+
+                                    <span>
+                                        ›
+                                    </span>
+
+                                </button>
+
+                            </div>
+
+                        </div>
+
+
+                        <!-- =================================
+                             LLAMADA ENTRANTE
+                        ================================== -->
+
+                        <div
+                            id="callScreen"
+                            class="phone-screen hidden">
+
+                            <div class="incoming-call">
+
+                                <div class="incoming-label">
+                                    LLAMADA ENTRANTE
+                                </div>
+
+
+                                <div
+                                    id="callerIcon"
+                                    class="caller-icon">
+                                    ☎
+                                </div>
+
+
+                                <div
+                                    id="callerName"
+                                    class="caller-name">
+                                    Número desconocido
+                                </div>
+
+
+                                <div
+                                    id="callerNumber"
+                                    class="caller-number">
+                                    Número desconocido
+                                </div>
+
+
+                                <div class="call-status-text">
+                                    Llamada no identificada
+                                </div>
+
+
+                                <div class="call-actions">
+
+                                    <button
+                                        class="call-action reject"
+                                        onclick="rejectCall()">
+
+                                        <span>
+                                            ✕
+                                        </span>
+
+                                        Rechazar
+
+                                    </button>
+
+
+                                    <button
+                                        class="call-action answer"
+                                        onclick="answerCall()">
+
+                                        <span>
+                                            ✓
+                                        </span>
+
+                                        Analizar
+
+                                    </button>
+
+                                </div>
+
+                            </div>
+
+                        </div>
+
+
+                        <!-- =================================
+                             IDENTIFICANDO LLAMADA
+                        ================================== -->
+
+                        <div
+                            id="analysisScreen"
+                            class="phone-screen hidden">
+
+                            <div class="analysis-screen">
+
+                                <div class="analysis-orbit">
+
+                                    <div class="orbit-ring"></div>
+
+                                    <div class="analysis-symbol">
+                                        🔎
+                                    </div>
+
+                                </div>
+
+
+                                <h2>
+                                    Identificando llamada
+                                </h2>
+
+
+                                <p>
+                                    Who Calls está analizando
+                                    la información disponible.
+                                </p>
+
+
+                                <div
+                                    id="analysisStatus"
+                                    class="analysis-status">
+
+                                    Iniciando identificación...
+
+                                </div>
+
+
+                                <div class="analysis-progress">
+
+                                    <div
+                                        id="analysisProgressBar"
+                                        class="analysis-progress-bar">
+                                    </div>
+
+                                </div>
+
+
+                                <div class="analysis-steps">
+
+                                    <div
+                                        id="step1"
+                                        class="analysis-step">
+
+                                        <span>
+                                            01
+                                        </span>
+
+                                        Identificando categoría
+
+                                    </div>
+
+
+                                    <div
+                                        id="step2"
+                                        class="analysis-step">
+
+                                        <span>
+                                            02
+                                        </span>
+
+                                        Comparando señales
+
+                                    </div>
+
+
+                                    <div
+                                        id="step3"
+                                        class="analysis-step">
+
+                                        <span>
+                                            03
+                                        </span>
+
+                                        Clasificando llamada
+
+                                    </div>
+
+                                </div>
+
+                            </div>
+
+                        </div>
+
+
+                        <!-- =================================
+                             PERFIL DE LLAMADA
+                        ================================== -->
+
+                        <div
+                            id="callProfileScreen"
+                            class="phone-screen hidden">
+
+                            <div class="call-profile-header">
+
+                                <span
+                                    class="profile-back"
+                                    onclick="closeCallProfile()">
+
+                                    ‹
+
+                                </span>
+
+
+                                <span>
+                                    Who Calls
+                                </span>
+
+
+                                <span></span>
+
+                            </div>
+
+
+                            <div class="call-profile-content">
+
+                                <div
+                                    id="profileIcon"
+                                    class="profile-icon">
+
+                                    ☎
+
+                                </div>
+
+
+                                <div
+                                    id="profileTitle"
+                                    class="profile-title">
+
+                                    Llamada identificada
+
+                                </div>
+
+
+                                <div
+                                    id="profileCategory"
+                                    class="profile-category">
+
+                                    Categoría
+
+                                </div>
+
+
+                                <div
+                                    id="profileRisk"
+                                    class="profile-risk">
+
+                                    RIESGO
+
+                                </div>
+
+
+                                <div class="profile-card">
+
+                                    <div class="profile-card-title">
+
+                                        ¿Qué detectó Who Calls?
+
+                                    </div>
+
+
+                                    <div id="profileSignals"></div>
+
+                                </div>
+
+
+                                <button
+                                    class="profile-main-button"
+                                    onclick="showCallSignals()">
+
+                                    Ver señales detectadas
+
+                                </button>
+
+
+                                <button
+                                    class="profile-secondary-button"
+                                    onclick="blockCurrentCall()">
+
+                                    Bloquear llamada
+
+                                </button>
+
+                            </div>
+
+                        </div>
+
+
+                        <!-- =================================
+                             SEÑALES DE LLAMADA
+                        ================================== -->
+
+                        <div
+                            id="callSignalsScreen"
+                            class="phone-screen hidden">
+
+                            <div class="call-profile-header">
+
+                                <span
+                                    class="profile-back"
+                                    onclick="backToCallProfile()">
+
+                                    ‹
+
+                                </span>
+
+
+                                <span>
+                                    Análisis
+                                </span>
+
+
+                                <span></span>
+
+                            </div>
+
+
+                            <div class="signals-content">
+
+                                <div class="signals-live">
+
+                                    <span class="live-dot"></span>
+
+                                    IDENTIFICACIÓN COMPLETADA
+
+                                </div>
+
+
+                                <div
+                                    id="signalsScenarioTitle"
+                                    class="signals-title">
+
+                                    Señales detectadas
+
+                                </div>
+
+
+                                <div id="signalsList"></div>
+
+
+                                <div class="decision-card">
+
+                                    <div class="decision-icon">
+                                        🛡️
+                                    </div>
+
+
+                                    <div>
+
+                                        <strong>
+                                            Decisión informada
+                                        </strong>
+
+
+                                        <p>
+                                            Who Calls proporciona
+                                            información para ayudar
+                                            al usuario a decidir cómo
+                                            actuar ante una llamada
+                                            desconocida.
+                                        </p>
+
+                                    </div>
+
+                                </div>
+
+
+                                <button
+                                    class="profile-main-button"
+                                    onclick="blockCurrentCall()">
+
+                                    Bloquear llamada
+
+                                </button>
+
+                            </div>
+
+                        </div>
+
+
+                        <!-- =================================
+                             LLAMADA BLOQUEADA
+                        ================================== -->
+
+                        <div
+                            id="blockedCallScreen"
+                            class="phone-screen hidden">
+
+                            <div class="blocked-content">
+
+                                <div class="blocked-icon">
+                                    🛡️
+                                </div>
+
+
+                                <h2>
+                                    Llamada bloqueada
+                                </h2>
+
+
+                                <p id="blockedMessage">
+                                    La llamada fue bloqueada.
+                                </p>
+
+
+                                <div class="blocked-summary">
+
+                                    <span>
+                                        Kaspersky Who Calls
+                                    </span>
+
+
+                                    <strong>
+                                        Protección activa
+                                    </strong>
+
+                                </div>
+
+
+                                <button
+                                    class="profile-main-button"
+                                    onclick="closeBlockedCall()">
+
+                                    Volver al laboratorio
+
+                                </button>
+
+                            </div>
+
+                        </div>
+
+
+                        <!-- =================================
+                             LLAMADA RECHAZADA
+                        ================================== -->
+
+                        <div
+                            id="rejectedCallScreen"
+                            class="phone-screen hidden">
+
+                            <div class="blocked-content">
+
+                                <div class="rejected-icon">
+                                    ✕
+                                </div>
+
+
+                                <h2>
+                                    Llamada rechazada
+                                </h2>
+
+
+                                <p>
+                                    El usuario decidió no
+                                    interactuar con la llamada.
+                                </p>
+
+
+                                <div class="blocked-summary">
+
+                                    <span>
+                                        Acción del usuario
+                                    </span>
+
+
+                                    <strong>
+                                        Interacción evitada
+                                    </strong>
+
+                                </div>
+
+
+                                <button
+                                    class="profile-main-button"
+                                    onclick="closeBlockedCall()">
+
+                                    Volver al laboratorio
+
+                                </button>
+
+                            </div>
+
+                        </div>
+
+
+                        <!-- =================================================
+                             MENÚ DE MENSAJES
+                        ================================================== -->
+
+                        <div
+                            id="messagesMenuScreen"
+                            class="phone-screen hidden">
+
+                            <div class="module-header">
+
+                                <button
+                                    class="module-back"
+                                    onclick="goHome()">
+
+                                    ‹
+
+                                </button>
+
+
+                                <div>
+
+                                    <strong>
+                                        Mensajes
+                                    </strong>
+
+                                    <small>
+                                        Security Lab
+                                    </small>
+
+                                </div>
+
+
+                                <span></span>
+
+                            </div>
+
+
+                            <div class="module-content">
+
+                                <div class="module-intro">
+
+                                    <span class="module-intro-icon">
+                                        💬
+                                    </span>
+
+
+                                    <div>
+
+                                        <strong>
+                                            Mensajes sospechosos
+                                        </strong>
+
+                                        <p>
+                                            Selecciona un mensaje
+                                            para analizar sus señales.
+                                        </p>
+
+                                    </div>
+
+                                </div>
+
+
+                                <!-- WHATSAPP -->
+
+                                <button
+                                    class="message-app-card whatsapp-card"
+                                    onclick="openWhatsApp()">
+
+                                    <div class="message-app-icon">
+                                        <svg
+                                            class="whatsapp-logo"
+                                            viewBox="0 0 32 32"
+                                            xmlns="http://www.w3.org/2000/svg"
+                                            aria-label="WhatsApp"
+                                            role="img"
+                                        >
+                                            <path
+                                                fill="currentColor"
+                                                d="M16 2.5a13.2 13.2 0 0 0-11.3 20L3 29l6.7-1.7A13.5 13.5 0 1 0 16 2.5Zm0 24.3a10.8 10.8 0 0 1-5.5-1.5l-.4-.2-4 .9 1-3.9-.3-.4A10.7 10.7 0 1 1 16 26.8Zm5.9-8c-.3-.2-1.8-.9-2.1-1-.3-.1-.5-.2-.7.2l-1 1.2c-.2.2-.4.2-.7.1a8.5 8.5 0 0 1-2.5-1.5 9.3 9.3 0 0 1-1.7-2.1c-.2-.3 0-.5.1-.7l.5-.5.3-.5c.1-.2 0-.4 0-.6l-.9-2.2c-.2-.6-.5-.5-.7-.5h-.6c-.2 0-.5.1-.8.4s-1 1-1 2.4 1 2.8 1.2 3c.1.2 2 3.1 4.9 4.3a16 16 0 0 0 1.6.6 4 4 0 0 0 1.8.1c.5-.1 1.8-.7 2-1.4.3-.7.3-1.3.2-1.4s-.3-.2-.6-.4Z"
+                                            />
+                                        </svg>
+                                    </div>
+
+
+                                    <div class="message-app-info">
+
+                                        <strong>
+                                            WhatsApp
+                                        </strong>
+
+                                        <span>
+                                            4 mensajes sospechosos
+                                        </span>
+
+                                    </div>
+
+
+                                    <div class="message-app-arrow">
+                                        ›
+                                    </div>
+
+                                </button>
+
+
+                                <!-- SMS -->
+
+                                <button
+                                    class="message-app-card sms-card"
+                                    onclick="openSMS()">
+
+                                    <div class="message-app-icon">
+                                        📱
+                                    </div>
+
+
+                                    <div class="message-app-info">
+
+                                        <strong>
+                                            Mensajes SMS
+                                        </strong>
+
+                                        <span>
+                                            2 mensajes sospechosos
+                                        </span>
+
+                                    </div>
+
+
+                                    <div class="message-app-arrow">
+                                        ›
+                                    </div>
+
+                                </button>
+
+                            </div>
+
+                        </div>
+
+
+                        <!-- =================================================
+                             WHATSAPP LISTA
+                        ================================================== -->
+
+                        <div
+                            id="whatsappScreen"
+                            class="phone-screen hidden">
+
+                            <div class="chat-header">
+
+                                <button
+                                    onclick="openMessagesModule()"
+                                    class="chat-back">
+
+                                    ‹
+
+                                </button>
+
+
+                                <div class="whatsapp-avatar">
+                                <svg viewBox="0 0 32 32" aria-hidden="true">
+                                    <path
+                                        fill="currentColor"
+                                        d="M19.11 17.39c-.27-.14-1.59-.78-1.84-.87-.25-.09-.43-.14-.61.14-.18.27-.7.87-.86 1.05-.16.18-.32.2-.59.07-.27-.14-1.14-.42-2.17-1.34-.8-.71-1.34-1.59-1.5-1.86-.16-.27-.02-.42.12-.56.12-.12.27-.32.41-.48.14-.16.18-.27.27-.45.09-.18.05-.34-.02-.48-.07-.14-.61-1.47-.84-2.01-.22-.53-.45-.46-.61-.47-.16-.01-.34-.01-.52-.01-.18 0-.48.07-.73.34-.25.27-.95.93-.95 2.27s.98 2.63 1.11 2.81c.14.18 1.93 2.95 4.68 4.13.65.28 1.16.45 1.56.58.66.21 1.26.18 1.73.11.53-.08 1.59-.65 1.81-1.28.23-.63.23-1.17.16-1.28-.07-.11-.25-.18-.52-.32z"
+                                    />
+                                    <path
+                                        fill="currentColor"
+                                        d="M16.01 3C8.83 3 3 8.82 3 16c0 2.3.6 4.46 1.65 6.34L3 29l6.84-1.62A12.94 12.94 0 0 0 16.01 29C23.18 29 29 23.18 29 16S23.18 3 16.01 3zm0 23.73c-2.03 0-4.02-.54-5.76-1.57l-.41-.24-4.06.96.97-3.95-.27-.41A10.77 10.77 0 1 1 16.01 26.73z"
+                                    />
+                                </svg>
+                            </div>
+
+
+                                <div class="chat-header-info">
+
+                                    <strong>
+                                        WhatsApp
+                                    </strong>
+
+                                    <small>
+                                        Mensajes sospechosos
+                                    </small>
+
+                                </div>
+
+                            </div>
+
+
+                            <div class="chat-list">
+
+                                <button
+                                    class="chat-item"
+                                    onclick="openMessage('whatsappPrize')">
+
+                                    <div class="chat-avatar">
+                                        🎁
+                                    </div>
+
+
+                                    <div class="chat-info">
+
+                                        <strong>
+                                            Centro de Premios
+                                        </strong>
+
+                                        <span>
+                                            ¡Has sido seleccionado...
+                                        </span>
+
+                                    </div>
+
+
+                                    <div class="chat-time">
+                                        ahora
+                                    </div>
+
+                                </button>
+
+
+                                <button
+                                    class="chat-item"
+                                    onclick="openMessage('whatsappCredit')">
+
+                                    <div class="chat-avatar">
+                                        💳
+                                    </div>
+
+
+                                    <div class="chat-info">
+
+                                        <strong>
+                                            Crédito Express
+                                        </strong>
+
+                                        <span>
+                                            Tu crédito ha sido aprobado...
+                                        </span>
+
+                                    </div>
+
+
+                                    <div class="chat-time">
+                                        10:42
+                                    </div>
+
+                                </button>
+
+
+                                <button
+                                    class="chat-item"
+                                    onclick="openMessage('whatsappAccount')">
+
+                                    <div class="chat-avatar">
+                                        🔐
+                                    </div>
+
+
+                                    <div class="chat-info">
+
+                                        <strong>
+                                            Seguridad de cuenta
+                                        </strong>
+
+                                        <span>
+                                            Tu cuenta será suspendida...
+                                        </span>
+
+                                    </div>
+
+
+                                    <div class="chat-time">
+                                        09:18
+                                    </div>
+
+                                </button>
+
+
+                                <button
+                                    class="chat-item"
+                                    onclick="openMessage('whatsappContact')">
+
+                                    <div class="chat-avatar">
+                                        👤
+                                    </div>
+
+
+                                    <div class="chat-info">
+
+                                        <strong>
+                                            Contacto desconocido
+                                        </strong>
+
+                                        <span>
+                                            Hola, ¿me puedes ayudar?
+                                        </span>
+
+                                    </div>
+
+
+                                    <div class="chat-time">
+                                        08:51
+                                    </div>
+
+                                </button>
+
+                            </div>
+
+                        </div>
+
+
+                        <!-- =================================================
+                             SMS LISTA
+                        ================================================== -->
+
+                        <div
+                            id="smsScreen"
+                            class="phone-screen hidden">
+
+                            <div class="chat-header">
+
+                                <button
+                                    onclick="openMessagesModule()"
+                                    class="chat-back">
+
+                                    ‹
+
+                                </button>
+
+
+                                <div class="sms-avatar">
+                                    📱
+                                </div>
+
+
+                                <div class="chat-header-info">
+
+                                    <strong>
+                                        Mensajes SMS
+                                    </strong>
+
+                                    <small>
+                                        Mensajes sospechosos
+                                    </small>
+
+                                </div>
+
+                            </div>
+
+
+                            <div class="chat-list">
+
+                                <button
+                                    class="chat-item"
+                                    onclick="openMessage('smsBank')">
+
+                                    <div class="chat-avatar">
+                                        🏦
+                                    </div>
+
+
+                                    <div class="chat-info">
+
+                                        <strong>
+                                            Seguridad bancaria
+                                        </strong>
+
+                                        <span>
+                                            Detectamos actividad inusual...
+                                        </span>
+
+                                    </div>
+
+
+                                    <div class="chat-time">
+                                        ahora
+                                    </div>
+
+                                </button>
+
+
+                                <button
+                                    class="chat-item"
+                                    onclick="openMessage('smsPackage')">
+
+                                    <div class="chat-avatar">
+                                        📦
+                                    </div>
+
+
+                                    <div class="chat-info">
+
+                                        <strong>
+                                            Servicio de entrega
+                                        </strong>
+
+                                        <span>
+                                            Tu paquete está retenido...
+                                        </span>
+
+                                    </div>
+
+
+                                    <div class="chat-time">
+                                        11:07
+                                    </div>
+
+                                </button>
+
+                            </div>
+
+                        </div>
+
+
+                        <!-- =================================================
+                             DETALLE DEL MENSAJE
+                        ================================================== -->
+
+                        <div
+                            id="messageDetailScreen"
+                            class="phone-screen hidden">
+
+                            <div class="message-detail-header">
+
+                                <button
+                                    onclick="backToMessageList()"
+                                    class="chat-back">
+
+                                    ‹
+
+                                </button>
+
+
+                                <span>
+                                    Mensaje
+                                </span>
+
+
+                                <span></span>
+
+                            </div>
+
+
+                            <div class="message-detail-content">
+
+                                <div
+                                    id="messageAppBadge"
+                                    class="message-app-badge">
+
+                                    💬
+
+                                </div>
+
+
+                                <div
+                                    id="messageSender"
+                                    class="message-sender">
+
+                                    Remitente
+
+                                </div>
+
+
+                                <div
+                                    id="messageChannel"
+                                    class="message-channel">
+
+                                    WhatsApp
+
+                                </div>
+
+
+                                <div
+                                    id="messageBubble"
+                                    class="message-bubble">
+
+                                    Mensaje
+
+                                </div>
+
+
+                                <div
+                                    id="messageLink"
+                                    class="fake-link">
+
+                                    enlace
+
+                                </div>
+
+
+                                <button
+                                    class="analyze-message-button"
+                                    onclick="analyzeCurrentMessage()">
+
+                                    🔎 Analizar mensaje
+
+                                </button>
+
+
+                                <div class="message-warning">
+
+                                    <span>
+                                        ⚠️
+                                    </span>
+
+                                    <p>
+                                        No abras enlaces sospechosos.
+                                        Analiza primero el mensaje.
+                                    </p>
+
+                                </div>
+
+                            </div>
+
+                        </div>
+
+
+                        <!-- =================================================
+                             ANÁLISIS DE MENSAJE
+                        ================================================== -->
+
+                        <div
+                            id="messageAnalysisScreen"
+                            class="phone-screen hidden">
+
+                            <div class="message-analysis">
+
+                                <div class="message-analysis-icon">
+                                    🔎
+                                </div>
+
+
+                                <h2>
+                                    Analizando mensaje
+                                </h2>
+
+
+                                <p>
+                                    Evaluando las señales presentes
+                                    en el contenido.
+                                </p>
+
+
+                                <div
+                                    id="messageAnalysisStatus"
+                                    class="analysis-status">
+
+                                    Preparando análisis...
+
+                                </div>
+
+
+                                <div class="analysis-progress">
+
+                                    <div
+                                        id="messageProgressBar"
+                                        class="analysis-progress-bar">
+                                    </div>
+
+                                </div>
+
+
+                                <div class="message-analysis-steps">
+
+                                    <div
+                                        id="messageStep1"
+                                        class="analysis-step">
+
+                                        <span>
+                                            01
+                                        </span>
+
+                                        Remitente y contexto
+
+                                    </div>
+
+
+                                    <div
+                                        id="messageStep2"
+                                        class="analysis-step">
+
+                                        <span>
+                                            02
+                                        </span>
+
+                                        Contenido y urgencia
+
+                                    </div>
+
+
+                                    <div
+                                        id="messageStep3"
+                                        class="analysis-step">
+
+                                        <span>
+                                            03
+                                        </span>
+
+                                        Enlace y señales
+
+                                    </div>
+
+
+                                    <div
+                                        id="messageStep4"
+                                        class="analysis-step">
+
+                                        <span>
+                                            04
+                                        </span>
+
+                                        Clasificación
+
+                                    </div>
+
+                                </div>
+
+                            </div>
+
+                        </div>
+
+
+                        <!-- =================================================
+                             RESULTADO PHISHING
+                        ================================================== -->
+
+                        <div
+                            id="phishingResultScreen"
+                            class="phone-screen hidden">
+
+                            <div class="phishing-result">
+
+                                <div
+                                    id="phishingResultIcon"
+                                    class="phishing-result-icon">
+
+                                    ⚠️
+
+                                </div>
+
+
+                                <div
+                                    id="phishingResultTitle"
+                                    class="phishing-result-title">
+
+                                    Posible phishing
+
+                                </div>
+
+
+                                <div
+                                    id="phishingResultRisk"
+                                    class="profile-risk">
+
+                                    RIESGO ALTO
+
+                                </div>
+
+
+                                <div
+                                    id="phishingResultCategory"
+                                    class="phishing-result-category">
+
+                                    Categoría
+
+                                </div>
+
+
+                                <div class="phishing-card">
+
+                                    <div class="phishing-card-title">
+
+                                        Señales detectadas
+
+                                    </div>
+
+
+                                    <div id="phishingSignals"></div>
+
+                                </div>
+
+
+                                <div class="target-card">
+
+                                    <div class="target-card-title">
+
+                                        🎯 Objetivo probable
+
+                                    </div>
+
+
+                                    <div id="phishingTargets"></div>
+
+                                </div>
+
+
+                                <button
+                                    class="profile-main-button"
+                                    onclick="showMessageProtection()">
+
+                                    Ver recomendación
+
+                                </button>
+
+                            </div>
+
+                        </div>
+
+
+                        <!-- =================================================
+                             PROTECCIÓN MENSAJE
+                        ================================================== -->
+
+                        <div
+                            id="messageProtectionScreen"
+                            class="phone-screen hidden">
+
+                            <div class="message-protection">
+
+                                <div class="protection-icon">
+                                    🛡️
+                                </div>
+
+
+                                <h2>
+                                    Antes de interactuar
+                                </h2>
+
+
+                                <p id="protectionText">
+
+                                    Evita abrir enlaces o compartir
+                                    información hasta verificar
+                                    el origen del mensaje.
+
+                                </p>
+
+
+                                <div class="protection-list">
+
+                                    <div>
+                                        <span>✓</span>
+                                        No respondas impulsivamente
+                                    </div>
+
+                                    <div>
+                                        <span>✓</span>
+                                        Verifica el remitente
+                                    </div>
+
+                                    <div>
+                                        <span>✓</span>
+                                        No abras enlaces sospechosos
+                                    </div>
+
+                                    <div>
+                                        <span>✓</span>
+                                        Utiliza protección de seguridad
+                                    </div>
+
+                                </div>
+
+
+                                <button
+                                    class="profile-main-button"
+                                    onclick="closeMessageFlow()">
+
+                                    Volver al laboratorio
+
+                                </button>
+
+                            </div>
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+
+                <!-- =========================================
+                     PANEL EXTERNO
+                ========================================== -->
+
+                <div class="scenario-panel">
+
+                    <div class="scenario-panel-header">
+
+                        <span>
+                            SECURITY SCENARIOS
+                        </span>
+
+                        <h3>
+                            Elige una simulación
+                        </h3>
+
+                    </div>
+
+
+                    <div class="scenario-grid">
+
+
+                        <!-- LLAMADAS -->
+
+                        <button
+                            class="scenario-card"
+                            onclick="showCall('bank')">
+
+                            <div class="scenario-icon">
+                                🏦
+                            </div>
+
+
+                            <div class="scenario-info">
+
+                                <strong>
+                                    Supuesto banco
+                                </strong>
+
+                                <span>
+                                    📞 Fraude financiero
+                                </span>
+
+                            </div>
+
+
+                            <div class="scenario-arrow">
+                                →
+                            </div>
+
+                        </button>
+
+
+                        <button
+                            class="scenario-card"
+                            onclick="showCall('package')">
+
+                            <div class="scenario-icon">
+                                📦
+                            </div>
+
+
+                            <div class="scenario-info">
+
+                                <strong>
+                                    Paquetería
+                                </strong>
+
+                                <span>
+                                    📞 Entrega sospechosa
+                                </span>
+
+                            </div>
+
+
+                            <div class="scenario-arrow">
+                                →
+                            </div>
+
+                        </button>
+
+
+                        <button
+                            class="scenario-card"
+                            onclick="showCall('prize')">
+
+                            <div class="scenario-icon">
+                                🎁
+                            </div>
+
+
+                            <div class="scenario-info">
+
+                                <strong>
+                                    Premio falso
+                                </strong>
+
+                                <span>
+                                    📞 Promoción sospechosa
+                                </span>
+
+                            </div>
+
+
+                            <div class="scenario-arrow">
+                                →
+                            </div>
+
+                        </button>
+
+
+                        <button
+                            class="scenario-card"
+                            onclick="showCall('support')">
+
+                            <div class="scenario-icon">
+                                🛠️
+                            </div>
+
+
+                            <div class="scenario-info">
+
+                                <strong>
+                                    Soporte técnico
+                                </strong>
+
+                                <span>
+                                    📞 Ingeniería social
+                                </span>
+
+                            </div>
+
+
+                            <div class="scenario-arrow">
+                                →
+                            </div>
+
+                        </button>
+
+
+                        <button
+                            class="scenario-card silent-card"
+                            onclick="showCall('silent')">
+
+                            <div class="scenario-icon">
+                                🔇
+                            </div>
+
+
+                            <div class="scenario-info">
+
+                                <strong>
+                                    Llamada silenciosa
+                                </strong>
+
+                                <span>
+                                    📞 Comportamiento sospechoso
+                                </span>
+
+                            </div>
+
+
+                            <div class="scenario-arrow">
+                                →
+                            </div>
+
+                        </button>
+
+
+                        <!-- MENSAJES -->
+
+                        <button
+                            class="scenario-card message-scenario-card"
+                            onclick="openWhatsApp()">
+
+                            <div class="scenario-icon whatsapp-icon">
+                                <svg viewBox="0 0 32 32" aria-hidden="true">
+                                    <path
+                                        fill="currentColor"
+                                        d="M19.11 17.39c-.27-.14-1.59-.78-1.84-.87-.25-.09-.43-.14-.61.14-.18.27-.7.87-.86 1.05-.16.18-.32.2-.59.07-.27-.14-1.14-.42-2.17-1.34-.8-.71-1.34-1.59-1.5-1.86-.16-.27-.02-.42.12-.56.12-.12.27-.32.41-.48.14-.16.18-.27.27-.45.09-.18.05-.34-.02-.48-.07-.14-.61-1.47-.84-2.01-.22-.53-.45-.46-.61-.47-.16-.01-.34-.01-.52-.01-.18 0-.48.07-.73.34-.25.27-.95.93-.95 2.27s.98 2.63 1.11 2.81c.14.18 1.93 2.95 4.68 4.13.65.28 1.16.45 1.56.58.66.21 1.26.18 1.73.11.53-.08 1.59-.65 1.81-1.28.23-.63.23-1.17.16-1.28-.07-.11-.25-.18-.52-.32z"
+                                    />
+                                    <path
+                                        fill="currentColor"
+                                        d="M16.01 3C8.83 3 3 8.82 3 16c0 2.3.6 4.46 1.65 6.34L3 29l6.84-1.62A12.94 12.94 0 0 0 16.01 29C23.18 29 29 23.18 29 16S23.18 3 16.01 3zm0 23.73c-2.03 0-4.02-.54-5.76-1.57l-.41-.24-4.06.96.97-3.95-.27-.41A10.77 10.77 0 1 1 16.01 26.73z"
+                                    />
+                                </svg>
+                            </div>
+
+
+                            <div class="scenario-info">
+
+                                <strong>
+                                    WhatsApp
+                                </strong>
+
+                                <span>
+                                    💬 Mensajes de phishing
+                                </span>
+
+                            </div>
+
+
+                            <div class="scenario-arrow">
+                                →
+                            </div>
+
+                        </button>
+
+
+                        <button
+                            class="scenario-card message-scenario-card"
+                            onclick="openSMS()">
+
+                            <div class="scenario-icon">
+                                📱
+                            </div>
+
+
+                            <div class="scenario-info">
+
+                                <strong>
+                                    SMS
+                                </strong>
+
+                                <span>
+                                    💬 Mensajes sospechosos
+                                </span>
+
+                            </div>
+
+
+                            <div class="scenario-arrow">
+                                →
+                            </div>
+
+                        </button>
+
+                    </div>
+
+
+                    <div class="scenario-note">
+
+                        <span>
+                            ⓘ
+                        </span>
+
+
+                        <p>
+                            Simulación educativa del proceso de
+                            identificación, análisis y protección
+                            frente a llamadas y mensajes sospechosos.
+                        </p>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+        </section>
+
+    </main>
+
+
+    <!-- =====================================================
+         FOOTER
+    ====================================================== -->
+
+    <footer>
+
+        <div>
+            KASPERSKY WHO CALLS
+        </div>
+
+        <span>
+            SECURITY LAB · SIMULACIÓN EDUCATIVA
+        </span>
+
+    </footer>
+
+
+    <script src="script.js"></script>
+
+</body>
+</html>
